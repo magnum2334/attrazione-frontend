@@ -1,6 +1,6 @@
 <template>
-    <div style="width: 100%; background: grey; display: flex; align-items: center;">
-        <div style="padding: 1px;">
+    <div style="width: 100%; background: grey; overflow: hidden;">
+        <div style="padding: 1px;" class="moving-text">
             &nbsp;&nbsp; ° Envío GRATIS* en pedidos mayores a $90.000 COP&nbsp; |&nbsp; SOMOS ATTRAZIONE |&nbsp; SOMOS
             EXCLUSIVIDAD &nbsp; |&nbsp; PREGUNTAS FRECUENTES &nbsp; | COMPRA POR NEQUI &nbsp; |
 
@@ -34,6 +34,34 @@
 
 <style lang="css" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+@keyframes moveRightAndAppear {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    51% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.moving-text {
+    animation: moveRightAndAppear 50s linear infinite;
+    white-space: nowrap;
+    /* Evita que el texto se rompa en líneas */
+}
 
 .collecion-text {
     font-size: 25px;
@@ -129,7 +157,7 @@
         top: -20px;
     }
 
-    .grid-item  .img-camisa {
+    .grid-item .img-camisa {
         display: flex;
         justify-content: end;
         align-items: center;
@@ -137,7 +165,7 @@
         left: 20px;
     }
 
-   
+
 
     /* Ajuste adicional para pantallas con menos de 350px de ancho */
     @media only screen and (max-width: 350px) {

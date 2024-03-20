@@ -6,7 +6,23 @@
 
     <Splide :options="options" :extensions="extensions" aria-label="My Favorite Images">
         <SplideSlide v-for="image in images" :key="image.id">
-            <img class="slide-image" src="@/assets/camisas.png" :alt="image.alt">
+            <v-hover v-slot="{ isHovering, props }">
+                <v-card class="mx-auto" max-width="344" v-bind="props">
+                    <img class="slide-image" src="@/assets/camisas.png" :alt="image.alt">
+                    <v-card-text>
+                        <h2 class="text-h6 text-primary">
+                            Magento Forests
+                        </h2>
+                        Travel to the best outdoor experience on planet Earth. A vacation you will never forget!
+                    </v-card-text>
+
+                   
+
+                    <v-overlay :model-value="isHovering" class="align-center justify-center" scrim="#036358" contained>
+                        <v-btn variant="flat">ver producto</v-btn>
+                    </v-overlay>
+                </v-card>
+            </v-hover>
         </SplideSlide>
     </Splide>
 </template>

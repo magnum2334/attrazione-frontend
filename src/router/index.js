@@ -1,16 +1,23 @@
-/**
- * router/index.ts
- *
- * Automatic routes for `./src/pages/*.vue`
- */
+// Importa las funciones necesarias de Vue Router
+import { createRouter, createWebHistory } from 'vue-router'
 
-// Composables
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import { setupLayouts } from 'virtual:generated-layouts'
+// Crea las rutas
+const routes = [
+  {
+    path: '/',
+    component: () => import('@/pages/index.vue'),
+  },
+  {
+    path: '/portafolio',
+    component: () => import('@/components/Portafolio.vue')
+  },
+  // Puedes agregar más rutas aquí si es necesario
+]
 
+// Crea el enrutador
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  extendRoutes: setupLayouts,
+  history: createWebHistory(),
+  routes // Utiliza las rutas que has definido
 })
 
 export default router

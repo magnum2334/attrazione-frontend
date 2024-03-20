@@ -10,7 +10,7 @@
             <v-img v-if="!isXs" src="@/assets/logosimple.png" max-width="10%" height="65%" />
             <div class="mr-auto" v-if="!isXs"></div>
             <div class="mx-auto" v-if="!isXs">
-                <v-btn @click="$vuetify.goTo('#hero')">
+                <v-btn >
                     <span class="mr-2 text-h6 " style="font-weight: 300 !important;">Inicio</span>
                 </v-btn>
                 <v-btn @click="$vuetify.goTo('#features')">
